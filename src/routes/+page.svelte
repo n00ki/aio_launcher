@@ -18,6 +18,7 @@
 		const os = await getOperatingSystem();
 		if (os !== 'Windows') {
 			alert('This app is not supported on your operating system');
+			isSystemSupported = false;
 		}
 	});
 </script>
@@ -27,12 +28,6 @@
 		<img src={wavesLogo} alt="Waves Audio" class="w-24 h-24" />
 	</div>
 	{#if isSystemSupported}
-		<div>
-			<h1 class="font-black text-3xl tracking-wide uppercase">
-				your operating system is not supported
-			</h1>
-		</div>
-	{:else}
 		<div class="pt-4 flex flex-wrap gap-4">
 			<button
 				on:click={launchLV1}
@@ -44,6 +39,12 @@
 				class="h-28 w-28 border-4 border-orange-600 text-slate-50 px-4 py-2 rounded-full hover:bg-slate-900 transition-colors duration-300 ease-in-out"
 				>Waves Central</button
 			>
+		</div>
+	{:else}
+		<div>
+			<h1 class="font-black text-3xl tracking-wide uppercase">
+				your operating system is not supported
+			</h1>
 		</div>
 	{/if}
 
