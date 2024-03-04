@@ -51,3 +51,9 @@ export function shutdownComputer() {
 			console.error('Failed to shut down the system:', error);
 		});
 }
+
+export function initDefaultOSBehavior() {
+	invoke('init_default_os_behavior').catch((error) => {
+		console.error('Failed to initialize default OS behavior:', error);
+	});
+}

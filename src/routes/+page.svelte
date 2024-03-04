@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import {
 		getOperatingSystem,
+		initDefaultOSBehavior,
 		launchLV1,
 		launchWavesCentral,
 		shutdownComputer
@@ -19,6 +20,13 @@
 		if (os !== 'Windows') {
 			alert('This app is not supported on your operating system');
 			isSystemSupported = false;
+		}
+
+		if (isSystemSupported) {
+			launchLV1();
+			setTimeout(() => {
+				initDefaultOSBehavior();
+			}, 10000);
 		}
 	});
 </script>
